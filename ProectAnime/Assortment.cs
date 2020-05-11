@@ -30,7 +30,7 @@ namespace ProectAnime
                     string[] item =
                     {
                     providerSet.Name_of_company
-                };
+                    };
                 comboBoxProvider.Items.Add(string.Join(" ", item));
 
                 }
@@ -94,7 +94,19 @@ namespace ProectAnime
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(listViewBook.SelectedItems.Count==0)
+            {
+                AssortmentSet assortment = listViewBook.SelectedItems[0].Tag as AssortmentSet;
+                textBoxName.Text = assortment.Name_product;
+                textBoxQuantity.Text = assortment.Quantity.ToString();
+                textBoxPrice.Text = assortment.price.ToString();
+            }
+            else
+            {
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -103,9 +115,12 @@ namespace ProectAnime
             assortment.Name_product = textBoxName.Text;
             assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
             assortment.price = Convert.ToInt32(textBoxPrice.Text);
-            
+            if(comboBoxType.SelectedIndex==0)
+            {
+
+            }
            
-            if(comboBoxType.SelectedIndex==1)
+            else if(comboBoxType.SelectedIndex==1)
             {
                 assortment.Type = 1;
                 assortment.razmer_H = Convert.ToInt32(textBoxRazmerH.Text);
@@ -122,7 +137,7 @@ namespace ProectAnime
             Program.BD.AssortmentSet.Add(assortment);
             Program.BD.SaveChanges();
             ShowAssort();
-            ShowProvider();
+          
 
         }
 
@@ -145,6 +160,12 @@ namespace ProectAnime
                 labelrazmerV.Visible = false;
                 textBoxCloor.Visible = false;
                 labelCloor.Visible = false;
+
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+
+
             }
             else if(comboBoxType.SelectedIndex==1)
             {
@@ -163,6 +184,12 @@ namespace ProectAnime
                 labelrazmerV.Visible = true;
                 textBoxCloor.Visible = false;
                 labelCloor.Visible = false;
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+                textBoxRazmerH.Text = "";
+                textBoxRazmerV.Text = "";
+
             }
             else if(comboBoxType.SelectedIndex==2)
             {
@@ -181,6 +208,95 @@ namespace ProectAnime
                 labelrazmerV.Visible = false;
                 textBoxCloor.Visible = true;
                 labelCloor.Visible = true;
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+                textBoxCloor.Text = "";
+            }
+        }
+
+        private void buttonEdit_Click(object sender, EventArgs e)
+        { if (comboBoxType.SelectedIndex == 0)
+            {
+                if (listViewBook.SelectedItems.Count == 0)
+                {
+                    AssortmentSet assortment = listViewBook.SelectedItems[0].Tag as AssortmentSet;
+                    assortment.Name_product = textBoxName.Text;
+                    assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                    assortment.price = Convert.ToInt32(textBoxPrice.Text);
+                    Program.BD.SaveChanges();
+                    ShowAssort();
+                }
+                else if (comboBoxType.SelectedIndex == 1)
+                {
+                    if (listViewFigurka.SelectedItems.Count == 1)
+                    {
+                        AssortmentSet assortment = listViewFigurka.SelectedItems[0].Tag as AssortmentSet;
+                        assortment.Name_product = textBoxName.Text;
+                        assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                        assortment.price = Convert.ToInt32(textBoxPrice.Text);
+                        assortment.razmer_V = Convert.ToInt32(textBoxRazmerV.Text);
+                        assortment.razmer_H = Convert.ToInt32(textBoxRazmerH.Text);
+                        Program.BD.SaveChanges();
+                        ShowAssort();
+                    }
+                }
+                else if (listViewMaska.SelectedItems.Count==2)
+                {
+                    AssortmentSet assortment = listViewMaska.SelectedItems[0].Tag as AssortmentSet;
+                    assortment.Name_product = textBoxName.Text;
+                    assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                    assortment.price = Convert.ToInt32(textBoxPrice.Text);
+                    assortment.color = textBoxCloor.Text;
+                    Program.BD.SaveChanges();
+                    ShowAssort();
+                }
+            }
+        }
+
+        private void listViewFigurka_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if( listViewFigurka.SelectedItems.Count==1)
+            {
+                AssortmentSet assortment = listViewFigurka.SelectedItems[0].Tag as AssortmentSet;
+                textBoxName.Text = assortment.Name_product;
+                textBoxQuantity.Text = assortment.Quantity.ToString();
+                textBoxPrice.Text = assortment.price.ToString();
+                textBoxRazmerV.Text = assortment.razmer_V.ToString();
+                textBoxRazmerH.Text = assortment.razmer_H.ToString();
+
+            }
+            else
+            {
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+                textBoxRazmerV.Text = "";
+                textBoxRazmerH.Text = "";
+            }
+        
+        }
+
+        private void listViewMaska_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(listViewMaska.SelectedItems.Count==2)
+            {
+                AssortmentSet assortment = listViewFigurka.SelectedItems[0].Tag as AssortmentSet;
+                textBoxName.Text = assortment.Name_product;
+                textBoxQuantity.Text = assortment.Quantity.ToString();
+                textBoxPrice.Text = assortment.price.ToString();
+                textBoxRazmerV.Text = assortment.razmer_V.ToString();
+                textBoxRazmerH.Text = assortment.razmer_H.ToString();
+                textBoxCloor.Text = assortment.color;
+            }
+            else
+            {
+                textBoxName.Text = "";
+                textBoxQuantity.Text = "";
+                textBoxPrice.Text = "";
+                textBoxRazmerV.Text = "";
+                textBoxRazmerH.Text = "";
+                textBoxCloor.Text = " ";
             }
         }
     }

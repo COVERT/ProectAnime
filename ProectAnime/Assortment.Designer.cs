@@ -139,6 +139,7 @@
             this.listViewFigurka.UseCompatibleStateImageBehavior = false;
             this.listViewFigurka.View = System.Windows.Forms.View.Details;
             this.listViewFigurka.Visible = false;
+            this.listViewFigurka.SelectedIndexChanged += new System.EventHandler(this.listViewFigurka_SelectedIndexChanged);
             // 
             // columnHeader6
             // 
@@ -187,6 +188,7 @@
             this.listViewMaska.UseCompatibleStateImageBehavior = false;
             this.listViewMaska.View = System.Windows.Forms.View.Details;
             this.listViewMaska.Visible = false;
+            this.listViewMaska.SelectedIndexChanged += new System.EventHandler(this.listViewMaska_SelectedIndexChanged);
             // 
             // columnHeader14
             // 
@@ -228,6 +230,7 @@
             this.buttonEdit.TabIndex = 43;
             this.buttonEdit.Text = "Изменить";
             this.buttonEdit.UseVisualStyleBackColor = true;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonAdd
             // 
