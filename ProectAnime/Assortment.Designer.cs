@@ -65,6 +65,7 @@
             this.labelProvider = new System.Windows.Forms.Label();
             this.labelCloor = new System.Windows.Forms.Label();
             this.comboBoxProvider = new System.Windows.Forms.ComboBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // comboBoxType
@@ -173,7 +174,8 @@
             this.columnHeader15,
             this.columnHeader16,
             this.columnHeader17,
-            this.columnHeader18});
+            this.columnHeader18,
+            this.columnHeader1});
             this.listViewMaska.FullRowSelect = true;
             this.listViewMaska.GridLines = true;
             this.listViewMaska.HideSelection = false;
@@ -432,5 +434,6 @@
         private System.Windows.Forms.Label labelProvider;
         private System.Windows.Forms.Label labelCloor;
         private System.Windows.Forms.ComboBox comboBoxProvider;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }

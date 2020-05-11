@@ -47,8 +47,10 @@ namespace ProectAnime
                     ListViewItem item = new ListViewItem(new string[]
                     {
                         assortment.Name_product,
+                        Convert.ToString(assortment.Id_provider),
                         Convert.ToString(assortment.Quantity),
                         Convert.ToString(assortment.price)
+                        
 
                     });
                     item.Tag = assortment;
@@ -62,7 +64,8 @@ namespace ProectAnime
                         Convert.ToString(assortment.Quantity),
                         Convert.ToString(assortment.price),
                         Convert.ToString(assortment.razmer_V),
-                        Convert.ToString( assortment.razmer_H)
+                        Convert.ToString( assortment.razmer_H),
+                        Convert.ToString(assortment.Id_provider)
 
                    });
                     item.Tag = assortment;
@@ -75,6 +78,7 @@ namespace ProectAnime
                         assortment.Name_product,
                         Convert.ToString(assortment.Quantity),
                         Convert.ToString(assortment.price),
+                        Convert.ToString(assortment.Id_provider),
                         assortment.color
 
                    });
@@ -99,13 +103,14 @@ namespace ProectAnime
             assortment.Name_product = textBoxName.Text;
             assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
             assortment.price = Convert.ToInt32(textBoxPrice.Text);
+            
            
             if(comboBoxType.SelectedIndex==1)
             {
                 assortment.Type = 1;
                 assortment.razmer_H = Convert.ToInt32(textBoxRazmerH.Text);
                 assortment.razmer_V = Convert.ToInt32(textBoxRazmerV.Text);
-
+                assortment.Id_provider = Convert.ToInt32(comboBoxProvider.SelectedIndex==1);
 
             }
             
