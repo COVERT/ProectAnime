@@ -98,7 +98,7 @@
             this.listViewBook.TabIndex = 39;
             this.listViewBook.UseCompatibleStateImageBehavior = false;
             this.listViewBook.View = System.Windows.Forms.View.Details;
-            this.listViewBook.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listViewBook.SelectedIndexChanged += new System.EventHandler(this.listViewBook_SelectedIndexChanged);
             // 
             // columnHeader2
             // 
@@ -131,7 +131,7 @@
             this.listViewFigurka.FullRowSelect = true;
             this.listViewFigurka.GridLines = true;
             this.listViewFigurka.HideSelection = false;
-            this.listViewFigurka.Location = new System.Drawing.Point(154, 12);
+            this.listViewFigurka.Location = new System.Drawing.Point(154, 52);
             this.listViewFigurka.MultiSelect = false;
             this.listViewFigurka.Name = "listViewFigurka";
             this.listViewFigurka.Size = new System.Drawing.Size(644, 85);
@@ -180,7 +180,7 @@
             this.listViewMaska.FullRowSelect = true;
             this.listViewMaska.GridLines = true;
             this.listViewMaska.HideSelection = false;
-            this.listViewMaska.Location = new System.Drawing.Point(154, 12);
+            this.listViewMaska.Location = new System.Drawing.Point(154, 143);
             this.listViewMaska.MultiSelect = false;
             this.listViewMaska.Name = "listViewMaska";
             this.listViewMaska.Size = new System.Drawing.Size(644, 85);

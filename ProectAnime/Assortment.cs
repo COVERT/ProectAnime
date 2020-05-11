@@ -92,7 +92,7 @@ namespace ProectAnime
          
         }
 
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private void listViewBook_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(listViewBook.SelectedItems.Count==0)
             {
@@ -112,17 +112,21 @@ namespace ProectAnime
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             AssortmentSet assortment = new AssortmentSet();
-            assortment.Name_product = textBoxName.Text;
-            assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
-            assortment.price = Convert.ToInt32(textBoxPrice.Text);
+           
             if(comboBoxType.SelectedIndex==0)
-            {
+            { 
+                assortment.Name_product = textBoxName.Text;
+                assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                assortment.price = Convert.ToInt32(textBoxPrice.Text);
 
             }
            
             else if(comboBoxType.SelectedIndex==1)
             {
                 assortment.Type = 1;
+                assortment.Name_product = textBoxName.Text;
+                assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                assortment.price = Convert.ToInt32(textBoxPrice.Text);
                 assortment.razmer_H = Convert.ToInt32(textBoxRazmerH.Text);
                 assortment.razmer_V = Convert.ToInt32(textBoxRazmerV.Text);
                 assortment.Id_provider = Convert.ToInt32(comboBoxProvider.SelectedIndex==1);
@@ -131,6 +135,9 @@ namespace ProectAnime
             
             else
             {
+                assortment.Name_product = textBoxName.Text;
+                assortment.Quantity = Convert.ToInt32(textBoxQuantity.Text);
+                assortment.price = Convert.ToInt32(textBoxPrice.Text);
                 assortment.Type = 2;
                 assortment.color = textBoxCloor.Text;
             }
