@@ -43,6 +43,7 @@
             this.buttonAgent.TabIndex = 0;
             this.buttonAgent.Text = "Менеджер";
             this.buttonAgent.UseVisualStyleBackColor = true;
+            this.buttonAgent.Click += new System.EventHandler(this.buttonAgent_Click);
             // 
             // buttonClient
             // 
@@ -52,6 +53,7 @@
             this.buttonClient.TabIndex = 1;
             this.buttonClient.Text = "Клиент";
             this.buttonClient.UseVisualStyleBackColor = true;
+            this.buttonClient.Click += new System.EventHandler(this.buttonClient_Click);
             // 
             // buttonAssortiment
             // 
@@ -61,6 +63,7 @@
             this.buttonAssortiment.TabIndex = 2;
             this.buttonAssortiment.Text = "ассортимент";
             this.buttonAssortiment.UseVisualStyleBackColor = true;
+            this.buttonAssortiment.Click += new System.EventHandler(this.buttonAssortiment_Click);
             // 
             // buttonPocupka
             // 
@@ -79,6 +82,7 @@
             this.buttonProvader.TabIndex = 4;
             this.buttonProvader.Text = "Поставщик";
             this.buttonProvader.UseVisualStyleBackColor = true;
+            this.buttonProvader.Click += new System.EventHandler(this.buttonProvader_Click);
             // 
             // Menu
             // 

@@ -13,10 +13,10 @@ namespace ProectAnime
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TutorialEntities : DbContext
+    public partial class TutorialEntities1 : DbContext
     {
-        public TutorialEntities()
-            : base("name=TutorialEntities")
+        public TutorialEntities1()
+            : base("name=TutorialEntities1")
         {
         }
     

@@ -8,6 +8,8 @@ namespace ProectAnime
 {
     static class Program
     {
+        public static TutorialEntities1 BD = new TutorialEntities1();
+
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

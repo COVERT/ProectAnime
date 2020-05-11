@@ -24,7 +24,11 @@ namespace ProectAnime
         public string Name_product { get; set; }
         public int Quantity { get; set; }
         public int price { get; set; }
+        public int razmer_V { get; set; }
+        public int razmer_H { get; set; }
         public int Id_provider { get; set; }
+        public string color { get; set; }
+        public int Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealSet> DealSet { get; set; }

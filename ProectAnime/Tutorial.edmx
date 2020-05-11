@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище TutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище TutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AgentSet">
           <Key>
             <PropertyRef Name="Id agent" />
@@ -22,7 +22,11 @@
           <Property Name="Name product" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="razmer V" Type="int" Nullable="false" />
+          <Property Name="razmer H" Type="int" Nullable="false" />
           <Property Name="Id provider" Type="int" Nullable="false" />
+          <Property Name="color" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ClientSet">
           <Key>
@@ -124,7 +128,8 @@
             <End Role="DealSet" EntitySet="DealSet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TutorialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -146,7 +151,11 @@
           <Property Name="Name_product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="razmer_V" Type="Int32" Nullable="false" />
+          <Property Name="razmer_H" Type="Int32" Nullable="false" />
           <Property Name="Id_provider" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
           <NavigationProperty Name="DealSet" Relationship="Self.FK_DealSet_AssortmentSet" FromRole="AssortmentSet" ToRole="DealSet" />
         </EntityType>
         <EntityType Name="ClientSet">
@@ -170,7 +179,7 @@
           <NavigationProperty Name="AgentSet" Relationship="Self.FK_DealSet_AgentSet" FromRole="DealSet" ToRole="AgentSet" />
           <NavigationProperty Name="AssortmentSet" Relationship="Self.FK_DealSet_AssortmentSet" FromRole="DealSet" ToRole="AssortmentSet" />
           <NavigationProperty Name="ClientSet" Relationship="Self.FK_DealSet_ClientSet" FromRole="DealSet" ToRole="ClientSet" />
-          <NavigationProperty Name="ProviderSet" Relationship="TutorialModel.FK_DealSet_ProviderSet" FromRole="DealSet" ToRole="ProviderSet" />
+          <NavigationProperty Name="ProviderSet" Relationship="Self.FK_DealSet_ProviderSet" FromRole="DealSet" ToRole="ProviderSet" />
         </EntityType>
         <EntityType Name="ProviderSet">
           <Key>
@@ -182,7 +191,7 @@
           <Property Name="Score" Type="Int32" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DealSet" Relationship="TutorialModel.FK_DealSet_ProviderSet" FromRole="ProviderSet" ToRole="DealSet" />
+          <NavigationProperty Name="DealSet" Relationship="Self.FK_DealSet_ProviderSet" FromRole="ProviderSet" ToRole="DealSet" />
         </EntityType>
         <Association Name="FK_DealSet_AgentSet">
           <End Role="AgentSet" Type="Self.AgentSet" Multiplicity="1" />
@@ -220,7 +229,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TutorialEntities" annotation:LazyLoadingEnabled="true">
+        <Association Name="FK_DealSet_ProviderSet">
+          <End Role="ProviderSet" Type="Self.ProviderSet" Multiplicity="1" />
+          <End Role="DealSet" Type="Self.DealSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProviderSet">
+              <PropertyRef Name="ID_provider" />
+            </Principal>
+            <Dependent Role="DealSet">
+              <PropertyRef Name="Id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TutorialEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AgentSet" EntityType="Self.AgentSet" />
           <EntitySet Name="AssortmentSet" EntityType="Self.AssortmentSet" />
           <EntitySet Name="ClientSet" EntityType="Self.ClientSet" />
@@ -238,29 +259,17 @@
             <End Role="ClientSet" EntitySet="ClientSet" />
             <End Role="DealSet" EntitySet="DealSet" />
           </AssociationSet>
-          <AssociationSet Name="FK_DealSet_ProviderSet" Association="TutorialModel.FK_DealSet_ProviderSet">
+          <AssociationSet Name="FK_DealSet_ProviderSet" Association="Self.FK_DealSet_ProviderSet">
             <End Role="ProviderSet" EntitySet="ProviderSet" />
             <End Role="DealSet" EntitySet="DealSet" />
           </AssociationSet>
         </EntityContainer>
-        <Association Name="FK_DealSet_ProviderSet">
-          <End Type="TutorialModel.ProviderSet" Role="ProviderSet" Multiplicity="1" />
-          <End Type="TutorialModel.DealSet" Role="DealSet" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="ProviderSet">
-              <PropertyRef Name="ID_provider" />
-            </Principal>
-            <Dependent Role="DealSet">
-              <PropertyRef Name="Id_product" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TutorialModelContainer" CdmEntityContainer="TutorialEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TutorialModelContainer" CdmEntityContainer="TutorialEntities1">
           <EntitySetMapping Name="AgentSet">
             <EntityTypeMapping TypeName="TutorialModel.AgentSet">
               <MappingFragment StoreEntitySet="AgentSet">
@@ -278,7 +287,11 @@
                 <ScalarProperty Name="Name_product" ColumnName="Name product" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="razmer_V" ColumnName="razmer V" />
+                <ScalarProperty Name="razmer_H" ColumnName="razmer H" />
                 <ScalarProperty Name="Id_provider" ColumnName="Id provider" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
