@@ -61,6 +61,7 @@
             this.buttonDel.TabIndex = 44;
             this.buttonDel.Text = "удалить";
             this.buttonDel.UseVisualStyleBackColor = true;
+            this.buttonDel.Click += new System.EventHandler(this.buttonDel_Click);
             // 
             // buttonEdit
             // 
@@ -102,6 +103,7 @@
             this.listViewSdelka.TabIndex = 41;
             this.listViewSdelka.UseCompatibleStateImageBehavior = false;
             this.listViewSdelka.View = System.Windows.Forms.View.Details;
+            this.listViewSdelka.SelectedIndexChanged += new System.EventHandler(this.listViewSdelka_SelectedIndexChanged);
             // 
             // columnHeader3
             // 

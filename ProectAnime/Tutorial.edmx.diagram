@@ -4,14 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="61872819761149c88b4a441a866a1292" Name="Diagram1">
+      <Diagram DiagramId="61872819761149c88b4a441a866a1292" Name="Diagram1" ZoomLevel="86">
         <EntityTypeShape EntityType="TutorialModel.AgentSet" Width="1.5" PointX="1.125" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.ClientSet" Width="1.5" PointX="1.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.ProviderSet" Width="1.5" PointX="4.625" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorialModel.ClientSet" Width="1.5" PointX="1" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorialModel.ProviderSet" Width="1.5" PointX="5.125" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="TutorialModel.sdelkaSet" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
         <AssociationConnector Association="TutorialModel.FK_sdelkaSet_AgentSet" ManuallyRouted="false" />
         <AssociationConnector Association="TutorialModel.FK_sdelkaSet_ClientSet" ManuallyRouted="false" />
         <AssociationConnector Association="TutorialModel.FK_sdelkaSet_ProviderSet" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TutorialModel.Users" Width="1.5" PointX="4.625" PointY="1.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

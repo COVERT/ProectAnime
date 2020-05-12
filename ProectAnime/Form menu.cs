@@ -15,6 +15,7 @@ namespace ProectAnime
         public Menu()
         {
             InitializeComponent();
+            if (user.users.type == "agent") buttonAgent.Enabled = false ;
         }
 
         private void buttonAgent_Click(object sender, EventArgs e)
