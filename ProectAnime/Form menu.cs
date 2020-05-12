@@ -37,8 +37,8 @@ namespace ProectAnime
 
         private void buttonAssortiment_Click(object sender, EventArgs e)
         {
-            Form FormAssortment = new Assortment();
-            FormAssortment.Show();
+            Form FormSdelka = new Sdelka();
+            FormSdelka.Show();
         }
     }
 }

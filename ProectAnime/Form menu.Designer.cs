@@ -31,13 +31,12 @@
             this.buttonAgent = new System.Windows.Forms.Button();
             this.buttonClient = new System.Windows.Forms.Button();
             this.buttonAssortiment = new System.Windows.Forms.Button();
-            this.buttonPocupka = new System.Windows.Forms.Button();
             this.buttonProvader = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonAgent
             // 
-            this.buttonAgent.Location = new System.Drawing.Point(124, 69);
+            this.buttonAgent.Location = new System.Drawing.Point(58, 58);
             this.buttonAgent.Name = "buttonAgent";
             this.buttonAgent.Size = new System.Drawing.Size(167, 30);
             this.buttonAgent.TabIndex = 0;
@@ -47,7 +46,7 @@
             // 
             // buttonClient
             // 
-            this.buttonClient.Location = new System.Drawing.Point(124, 114);
+            this.buttonClient.Location = new System.Drawing.Point(58, 94);
             this.buttonClient.Name = "buttonClient";
             this.buttonClient.Size = new System.Drawing.Size(167, 30);
             this.buttonClient.TabIndex = 1;
@@ -57,26 +56,17 @@
             // 
             // buttonAssortiment
             // 
-            this.buttonAssortiment.Location = new System.Drawing.Point(124, 161);
+            this.buttonAssortiment.Location = new System.Drawing.Point(58, 130);
             this.buttonAssortiment.Name = "buttonAssortiment";
             this.buttonAssortiment.Size = new System.Drawing.Size(167, 30);
             this.buttonAssortiment.TabIndex = 2;
-            this.buttonAssortiment.Text = "ассортимент";
+            this.buttonAssortiment.Text = "сделка";
             this.buttonAssortiment.UseVisualStyleBackColor = true;
             this.buttonAssortiment.Click += new System.EventHandler(this.buttonAssortiment_Click);
             // 
-            // buttonPocupka
-            // 
-            this.buttonPocupka.Location = new System.Drawing.Point(124, 211);
-            this.buttonPocupka.Name = "buttonPocupka";
-            this.buttonPocupka.Size = new System.Drawing.Size(167, 30);
-            this.buttonPocupka.TabIndex = 3;
-            this.buttonPocupka.Text = "покупка";
-            this.buttonPocupka.UseVisualStyleBackColor = true;
-            // 
             // buttonProvader
             // 
-            this.buttonProvader.Location = new System.Drawing.Point(124, 260);
+            this.buttonProvader.Location = new System.Drawing.Point(58, 166);
             this.buttonProvader.Name = "buttonProvader";
             this.buttonProvader.Size = new System.Drawing.Size(167, 30);
             this.buttonProvader.TabIndex = 4;
@@ -88,9 +78,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 450);
+            this.ClientSize = new System.Drawing.Size(270, 233);
             this.Controls.Add(this.buttonProvader);
-            this.Controls.Add(this.buttonPocupka);
             this.Controls.Add(this.buttonAssortiment);
             this.Controls.Add(this.buttonClient);
             this.Controls.Add(this.buttonAgent);
@@ -105,7 +94,6 @@
         private System.Windows.Forms.Button buttonAgent;
         private System.Windows.Forms.Button buttonClient;
         private System.Windows.Forms.Button buttonAssortiment;
-        private System.Windows.Forms.Button buttonPocupka;
         private System.Windows.Forms.Button buttonProvader;
     }
 }

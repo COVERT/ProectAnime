@@ -26,9 +26,8 @@ namespace ProectAnime
         }
     
         public virtual DbSet<AgentSet> AgentSet { get; set; }
-        public virtual DbSet<AssortmentSet> AssortmentSet { get; set; }
         public virtual DbSet<ClientSet> ClientSet { get; set; }
-        public virtual DbSet<DealSet> DealSet { get; set; }
         public virtual DbSet<ProviderSet> ProviderSet { get; set; }
+        public virtual DbSet<sdelkaSet> sdelkaSet { get; set; }
     }
 }

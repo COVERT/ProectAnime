@@ -4,16 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b26160850a5f4035b1309a551781bbd4" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="TutorialModel.AgentSet" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.AssortmentSet" Width="1.5" PointX="0.625" PointY="3.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.ClientSet" Width="1.5" PointX="5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.DealSet" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="TutorialModel.ProviderSet" Width="1.5" PointX="3.5" PointY="4.5" IsExpanded="true" />
-        <AssociationConnector Association="TutorialModel.FK_DealSet_AgentSet" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorialModel.FK_DealSet_AssortmentSet" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorialModel.FK_DealSet_ClientSet" ManuallyRouted="false" />
-        <AssociationConnector Association="TutorialModel.FK_DealSet_ProviderSet" ManuallyRouted="false" />
+      <Diagram DiagramId="61872819761149c88b4a441a866a1292" Name="Diagram1">
+        <EntityTypeShape EntityType="TutorialModel.AgentSet" Width="1.5" PointX="1.125" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorialModel.ClientSet" Width="1.5" PointX="1.25" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorialModel.ProviderSet" Width="1.5" PointX="4.625" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TutorialModel.sdelkaSet" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <AssociationConnector Association="TutorialModel.FK_sdelkaSet_AgentSet" ManuallyRouted="false" />
+        <AssociationConnector Association="TutorialModel.FK_sdelkaSet_ClientSet" ManuallyRouted="false" />
+        <AssociationConnector Association="TutorialModel.FK_sdelkaSet_ProviderSet" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

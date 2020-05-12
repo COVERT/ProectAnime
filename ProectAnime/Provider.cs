@@ -43,7 +43,7 @@ namespace ProectAnime
             ProviderSet providerSet = new ProviderSet();
             providerSet.Name_of_company= textBoxNamecompany.Text;
             providerSet.Address= textBoxAdress.Text;
-            providerSet.Score = Convert.ToInt32(textBoxScore.Text);
+            providerSet.Score = Convert.ToString(textBoxScore.Text);
             providerSet.Phone= textBoxPhone.Text;
             providerSet.Email= textBoxEmail.Text;
             Program.BD.ProviderSet.Add(providerSet);
@@ -59,7 +59,7 @@ namespace ProectAnime
                 ProviderSet providerSet = listViewProvider.SelectedItems[0].Tag as ProviderSet;
                 providerSet.Name_of_company = textBoxNamecompany.Text;
                 providerSet.Address = textBoxAdress.Text;
-                providerSet.Score = Convert.ToInt32(textBoxScore.Text);
+                providerSet.Score = Convert.ToString(textBoxScore.Text);
                 providerSet.Phone = textBoxPhone.Text;
                 providerSet.Email = textBoxEmail.Text;
                 Program.BD.SaveChanges();

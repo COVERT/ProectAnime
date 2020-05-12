@@ -64,15 +64,6 @@
     <Compile Include="AgentSet.cs">
       <DependentUpon>Tutorial.tt</DependentUpon>
     </Compile>
-    <Compile Include="Assortment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Assortment.Designer.cs">
-      <DependentUpon>Assortment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AssortmentSet.cs">
-      <DependentUpon>Tutorial.tt</DependentUpon>
-    </Compile>
     <Compile Include="Client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,9 +71,6 @@
       <DependentUpon>Client.cs</DependentUpon>
     </Compile>
     <Compile Include="ClientSet.cs">
-      <DependentUpon>Tutorial.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DealSet.cs">
       <DependentUpon>Tutorial.tt</DependentUpon>
     </Compile>
     <Compile Include="Form menu.cs">
@@ -100,6 +88,15 @@
       <DependentUpon>Provider.cs</DependentUpon>
     </Compile>
     <Compile Include="ProviderSet.cs">
+      <DependentUpon>Tutorial.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sdelka.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sdelka.Designer.cs">
+      <DependentUpon>Sdelka.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sdelkaSet.cs">
       <DependentUpon>Tutorial.tt</DependentUpon>
     </Compile>
     <Compile Include="Tutorial.Context.cs">
@@ -120,9 +117,6 @@
     <EmbeddedResource Include="Agent.resx">
       <DependentUpon>Agent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assortment.resx">
-      <DependentUpon>Assortment.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Client.resx">
       <DependentUpon>Client.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="Provider.resx">
       <DependentUpon>Provider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sdelka.resx">
+      <DependentUpon>Sdelka.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

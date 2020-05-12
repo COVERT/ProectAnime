@@ -17,17 +17,17 @@ namespace ProectAnime
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ProviderSet()
         {
-            this.DealSet = new HashSet<DealSet>();
+            this.sdelkaSet = new HashSet<sdelkaSet>();
         }
     
         public int ID_provider { get; set; }
         public string Name_of_company { get; set; }
         public string Address { get; set; }
-        public int Score { get; set; }
+        public string Score { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DealSet> DealSet { get; set; }
+        public virtual ICollection<sdelkaSet> sdelkaSet { get; set; }
     }
 }

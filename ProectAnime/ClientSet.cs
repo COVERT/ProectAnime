@@ -17,7 +17,7 @@ namespace ProectAnime
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ClientSet()
         {
-            this.DealSet = new HashSet<DealSet>();
+            this.sdelkaSet = new HashSet<sdelkaSet>();
         }
     
         public int Id_client { get; set; }
@@ -26,6 +26,6 @@ namespace ProectAnime
         public Nullable<int> Phone { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DealSet> DealSet { get; set; }
+        public virtual ICollection<sdelkaSet> sdelkaSet { get; set; }
     }
 }
