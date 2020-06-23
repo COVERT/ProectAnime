@@ -4,15 +4,16 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище TutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище TutorialModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AgentSet">
           <Key>
             <PropertyRef Name="Id agent" />
           </Key>
           <Property Name="Id agent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Last name" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Position" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Napravlenie" Type="nvarchar(max)" />
+          <Property Name="time" Type="nvarchar(max)" />
+          <Property Name="mesto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="ClientSet">
           <Key>
@@ -22,6 +23,15 @@
           <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Last Name" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Phone" Type="int" />
+        </EntityType>
+        <EntityType Name="DealSet">
+          <Key>
+            <PropertyRef Name="Id sdelka" />
+          </Key>
+          <Property Name="Id sdelka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id Agent" Type="int" Nullable="false" />
+          <Property Name="Id Client" Type="int" Nullable="false" />
+          <Property Name="Id product" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ProviderSet">
           <Key>
@@ -55,6 +65,18 @@
           <Property Name="Pssword" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Type" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <Association Name="FK_DealSet_ProviderSet">
+          <End Role="ProviderSet" Type="Self.ProviderSet" Multiplicity="1" />
+          <End Role="DealSet" Type="Self.DealSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProviderSet">
+              <PropertyRef Name="ID provider" />
+            </Principal>
+            <Dependent Role="DealSet">
+              <PropertyRef Name="Id product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_sdelkaSet_AgentSet">
           <End Role="AgentSet" Type="Self.AgentSet" Multiplicity="1" />
           <End Role="sdelkaSet" Type="Self.sdelkaSet" Multiplicity="*" />
@@ -94,9 +116,14 @@
         <EntityContainer Name="Хранилище TutorialModelContainer">
           <EntitySet Name="AgentSet" EntityType="Self.AgentSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ClientSet" EntityType="Self.ClientSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DealSet" EntityType="Self.DealSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ProviderSet" EntityType="Self.ProviderSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sdelkaSet" EntityType="Self.sdelkaSet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DealSet_ProviderSet" Association="Self.FK_DealSet_ProviderSet">
+            <End Role="ProviderSet" EntitySet="ProviderSet" />
+            <End Role="DealSet" EntitySet="DealSet" />
+          </AssociationSet>
           <AssociationSet Name="FK_sdelkaSet_AgentSet" Association="Self.FK_sdelkaSet_AgentSet">
             <End Role="AgentSet" EntitySet="AgentSet" />
             <End Role="sdelkaSet" EntitySet="sdelkaSet" />
@@ -110,7 +137,8 @@
             <End Role="sdelkaSet" EntitySet="sdelkaSet" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TutorialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -120,8 +148,9 @@
           </Key>
           <Property Name="Id_agent" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Last_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Napravlenie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="time" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="mesto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="sdelkaSet" Relationship="Self.FK_sdelkaSet_AgentSet" FromRole="AgentSet" ToRole="sdelkaSet" />
         </EntityType>
         <EntityType Name="ClientSet">
@@ -134,6 +163,16 @@
           <Property Name="Phone" Type="Int32" />
           <NavigationProperty Name="sdelkaSet" Relationship="Self.FK_sdelkaSet_ClientSet" FromRole="ClientSet" ToRole="sdelkaSet" />
         </EntityType>
+        <EntityType Name="DealSet">
+          <Key>
+            <PropertyRef Name="Id_sdelka" />
+          </Key>
+          <Property Name="Id_sdelka" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Agent" Type="Int32" Nullable="false" />
+          <Property Name="Id_Client" Type="Int32" Nullable="false" />
+          <Property Name="Id_product" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ProviderSet" Relationship="Self.FK_DealSet_ProviderSet" FromRole="DealSet" ToRole="ProviderSet" />
+        </EntityType>
         <EntityType Name="ProviderSet">
           <Key>
             <PropertyRef Name="ID_provider" />
@@ -144,6 +183,7 @@
           <Property Name="Score" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DealSet" Relationship="Self.FK_DealSet_ProviderSet" FromRole="ProviderSet" ToRole="DealSet" />
           <NavigationProperty Name="sdelkaSet" Relationship="Self.FK_sdelkaSet_ProviderSet" FromRole="ProviderSet" ToRole="sdelkaSet" />
         </EntityType>
         <EntityType Name="sdelkaSet">
@@ -160,6 +200,15 @@
           <NavigationProperty Name="AgentSet" Relationship="Self.FK_sdelkaSet_AgentSet" FromRole="sdelkaSet" ToRole="AgentSet" />
           <NavigationProperty Name="ClientSet" Relationship="Self.FK_sdelkaSet_ClientSet" FromRole="sdelkaSet" ToRole="ClientSet" />
           <NavigationProperty Name="ProviderSet" Relationship="Self.FK_sdelkaSet_ProviderSet" FromRole="sdelkaSet" ToRole="ProviderSet" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pssword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <Association Name="FK_sdelkaSet_AgentSet">
           <End Role="AgentSet" Type="Self.AgentSet" Multiplicity="1" />
@@ -185,6 +234,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_DealSet_ProviderSet">
+          <End Role="ProviderSet" Type="Self.ProviderSet" Multiplicity="1" />
+          <End Role="DealSet" Type="Self.DealSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProviderSet">
+              <PropertyRef Name="ID_provider" />
+            </Principal>
+            <Dependent Role="DealSet">
+              <PropertyRef Name="Id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_sdelkaSet_ProviderSet">
           <End Role="ProviderSet" Type="Self.ProviderSet" Multiplicity="1" />
           <End Role="sdelkaSet" Type="Self.sdelkaSet" Multiplicity="*" />
@@ -197,11 +258,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TutorialEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TutorialEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AgentSet" EntityType="Self.AgentSet" />
           <EntitySet Name="ClientSet" EntityType="Self.ClientSet" />
+          <EntitySet Name="DealSet" EntityType="Self.DealSet" />
           <EntitySet Name="ProviderSet" EntityType="Self.ProviderSet" />
           <EntitySet Name="sdelkaSet" EntityType="Self.sdelkaSet" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
           <AssociationSet Name="FK_sdelkaSet_AgentSet" Association="Self.FK_sdelkaSet_AgentSet">
             <End Role="AgentSet" EntitySet="AgentSet" />
             <End Role="sdelkaSet" EntitySet="sdelkaSet" />
@@ -210,34 +273,29 @@
             <End Role="ClientSet" EntitySet="ClientSet" />
             <End Role="sdelkaSet" EntitySet="sdelkaSet" />
           </AssociationSet>
+          <AssociationSet Name="FK_DealSet_ProviderSet" Association="Self.FK_DealSet_ProviderSet">
+            <End Role="ProviderSet" EntitySet="ProviderSet" />
+            <End Role="DealSet" EntitySet="DealSet" />
+          </AssociationSet>
           <AssociationSet Name="FK_sdelkaSet_ProviderSet" Association="Self.FK_sdelkaSet_ProviderSet">
             <End Role="ProviderSet" EntitySet="ProviderSet" />
             <End Role="sdelkaSet" EntitySet="sdelkaSet" />
           </AssociationSet>
-          <EntitySet Name="Users" EntityType="TutorialModel.Users" />
         </EntityContainer>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Pssword" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище TutorialModelContainer" CdmEntityContainer="TutorialEntities1">
+        <EntityContainerMapping StorageEntityContainer="Хранилище TutorialModelContainer" CdmEntityContainer="TutorialEntities3">
           <EntitySetMapping Name="AgentSet">
             <EntityTypeMapping TypeName="TutorialModel.AgentSet">
               <MappingFragment StoreEntitySet="AgentSet">
                 <ScalarProperty Name="Id_agent" ColumnName="Id agent" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Last_name" ColumnName="Last name" />
-                <ScalarProperty Name="Position" ColumnName="Position" />
+                <ScalarProperty Name="Napravlenie" ColumnName="Napravlenie" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="mesto" ColumnName="mesto" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -248,6 +306,16 @@
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DealSet">
+            <EntityTypeMapping TypeName="TutorialModel.DealSet">
+              <MappingFragment StoreEntitySet="DealSet">
+                <ScalarProperty Name="Id_sdelka" ColumnName="Id sdelka" />
+                <ScalarProperty Name="Id_Agent" ColumnName="Id Agent" />
+                <ScalarProperty Name="Id_Client" ColumnName="Id Client" />
+                <ScalarProperty Name="Id_product" ColumnName="Id product" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -279,10 +347,10 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="TutorialModel.Users">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Pssword" ColumnName="Pssword" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Pssword" ColumnName="Pssword" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,21 +12,13 @@ namespace ProectAnime
     using System;
     using System.Collections.Generic;
     
-    public partial class AgentSet
+    public partial class DealSet
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public AgentSet()
-        {
-            this.sdelkaSet = new HashSet<sdelkaSet>();
-        }
+        public int Id_sdelka { get; set; }
+        public int Id_Agent { get; set; }
+        public int Id_Client { get; set; }
+        public int Id_product { get; set; }
     
-        public int Id_agent { get; set; }
-        public string Name { get; set; }
-        public string Napravlenie { get; set; }
-        public string time { get; set; }
-        public string mesto { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sdelkaSet> sdelkaSet { get; set; }
+        public virtual ProviderSet ProviderSet { get; set; }
     }
 }

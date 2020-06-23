@@ -18,7 +18,7 @@ namespace ProectAnime
             ShowVis();
             ShowAgent();
             ShowClient();
-            ShowProvider();
+           
              
         }
 
@@ -47,18 +47,7 @@ namespace ProectAnime
                 comboBoxClient.Items.Add(string.Join(" ", item));
             }
         }
-        void ShowProvider()
-        {
-            comboBoxProvider.Items.Clear();
-            foreach(ProviderSet providerSet in Program.BD.ProviderSet)
-            {
-                string[] item =
-                {
-                    Convert.ToString(providerSet.ID_provider)
-                };
-                comboBoxProvider.Items.Add(string.Join(" ", item));
-            }
-        }
+       
         void ShowVis()
         {
             listViewSdelka.Items.Clear();
@@ -69,9 +58,9 @@ namespace ProectAnime
                     sdelka.Name_product,
                     Convert.ToString(sdelka.Quantity),
                     Convert.ToString(sdelka.price),
-                    sdelka.AgentSet.Last_name,
+                    sdelka.AgentSet.Name,
                     sdelka.ClientSet.Last_Name,
-                    sdelka.ProviderSet.Name_of_company
+                    
 
 
                 });
@@ -87,7 +76,7 @@ namespace ProectAnime
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            if(comboBoxAgent.SelectedItem!=null && comboBoxClient.SelectedItem!= null && comboBoxProvider.SelectedItem!=null)
+            if(comboBoxAgent.SelectedItem!=null && comboBoxClient.SelectedItem!= null )
             {
                 sdelkaSet sdelka = new sdelkaSet();
                 sdelka.Name_product = textBoxNameProduct.Text;
@@ -95,7 +84,7 @@ namespace ProectAnime
                 sdelka.price = Convert.ToInt32(textBoxprice.Text);
                 sdelka.Id__agent= Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split('.')[0]);
                 sdelka.Id_client= Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split('.')[0]);
-                sdelka.ID_provider = Convert.ToInt32(comboBoxProvider.SelectedItem.ToString().Split('.')[0]);
+                
                 Program.BD.sdelkaSet.Add(sdelka);
                 Program.BD.SaveChanges();
                 ShowVis();
@@ -116,7 +105,7 @@ namespace ProectAnime
                 sdelka.price = Convert.ToInt32(textBoxprice.Text);
                 sdelka.Id__agent = Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split('.')[0]);
                 sdelka.Id_client = Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split('.')[0]);
-                sdelka.ID_provider = Convert.ToInt32(comboBoxProvider.SelectedItem.ToString().Split('.')[0]);
+               
                 Program.BD.SaveChanges();
                 ShowVis();
             }
@@ -144,7 +133,7 @@ namespace ProectAnime
                 textBoxQuantity.Text = "";
                 comboBoxAgent.Text = "";
                 comboBoxClient.Text = "";
-                comboBoxProvider.Text = "";
+                
             }
             catch
             {
@@ -162,7 +151,7 @@ namespace ProectAnime
                 textBoxQuantity.Text = Convert.ToString(sdelka.Quantity);
                 comboBoxAgent.Text = Convert.ToString(sdelka.Id__agent);
                 comboBoxClient.Text = Convert.ToString(sdelka.Id_client);
-                comboBoxProvider.Text = Convert.ToString(sdelka.ID_provider);
+               
 
 
             }
@@ -173,10 +162,15 @@ namespace ProectAnime
                 textBoxQuantity.Text = "";
                 comboBoxAgent.Text = "";
                 comboBoxClient.Text = "";
-                comboBoxProvider.Text = "";
+               
 
 
             }
+        }
+
+        private void comboBoxProvider_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

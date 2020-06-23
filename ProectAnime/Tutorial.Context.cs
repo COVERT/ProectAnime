@@ -13,10 +13,10 @@ namespace ProectAnime
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TutorialEntities1 : DbContext
+    public partial class TutorialEntities3 : DbContext
     {
-        public TutorialEntities1()
-            : base("name=TutorialEntities1")
+        public TutorialEntities3()
+            : base("name=TutorialEntities3")
         {
         }
     
@@ -27,6 +27,7 @@ namespace ProectAnime
     
         public virtual DbSet<AgentSet> AgentSet { get; set; }
         public virtual DbSet<ClientSet> ClientSet { get; set; }
+        public virtual DbSet<DealSet> DealSet { get; set; }
         public virtual DbSet<ProviderSet> ProviderSet { get; set; }
         public virtual DbSet<sdelkaSet> sdelkaSet { get; set; }
         public virtual DbSet<Users> Users { get; set; }

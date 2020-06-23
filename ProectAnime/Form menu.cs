@@ -32,8 +32,8 @@ namespace ProectAnime
 
         private void buttonProvader_Click(object sender, EventArgs e)
         {
-            Form FormProvider = new Provider();
-            FormProvider.Show();
+            Form FormKontakt = new Kontakt();
+            FormKontakt.Show();
         }
 
         private void buttonAssortiment_Click(object sender, EventArgs e)

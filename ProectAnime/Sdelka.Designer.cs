@@ -41,7 +41,6 @@
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.comboBoxAgent = new System.Windows.Forms.ComboBox();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
-            this.comboBoxProvider = new System.Windows.Forms.ComboBox();
             this.textBoxNameProduct = new System.Windows.Forms.TextBox();
             this.textBoxQuantity = new System.Windows.Forms.TextBox();
             this.textBoxprice = new System.Windows.Forms.TextBox();
@@ -49,7 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -149,14 +147,6 @@
             this.comboBoxClient.Size = new System.Drawing.Size(100, 21);
             this.comboBoxClient.TabIndex = 47;
             // 
-            // comboBoxProvider
-            // 
-            this.comboBoxProvider.FormattingEnabled = true;
-            this.comboBoxProvider.Location = new System.Drawing.Point(12, 216);
-            this.comboBoxProvider.Name = "comboBoxProvider";
-            this.comboBoxProvider.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxProvider.TabIndex = 48;
-            // 
             // textBoxNameProduct
             // 
             this.textBoxNameProduct.Location = new System.Drawing.Point(12, 26);
@@ -214,15 +204,6 @@
             this.label4.TabIndex = 55;
             this.label4.Text = "купил";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 200);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "поставил";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -238,7 +219,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -246,7 +226,6 @@
             this.Controls.Add(this.textBoxprice);
             this.Controls.Add(this.textBoxQuantity);
             this.Controls.Add(this.textBoxNameProduct);
-            this.Controls.Add(this.comboBoxProvider);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.comboBoxAgent);
             this.Controls.Add(this.buttonDel);
@@ -276,7 +255,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ComboBox comboBoxAgent;
         private System.Windows.Forms.ComboBox comboBoxClient;
-        private System.Windows.Forms.ComboBox comboBoxProvider;
         private System.Windows.Forms.TextBox textBoxNameProduct;
         private System.Windows.Forms.TextBox textBoxQuantity;
         private System.Windows.Forms.TextBox textBoxprice;
@@ -284,7 +262,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
     }
 }

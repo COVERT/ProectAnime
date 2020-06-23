@@ -49,38 +49,13 @@ namespace ProectAnime
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if (listViewClient.SelectedItems.Count == 1)
-            {
-               ClientSet clientSet = listViewClient.SelectedItems[0].Tag as ClientSet;
-                clientSet.Name = textBoxName.Text;
-                clientSet.Last_Name = textBoxLastName.Text;
-                clientSet.Phone = Convert.ToInt32(textBoxPhone.Text);
-                Program.BD.SaveChanges();
-                ShowClient();
-            }
+           
+            
         }
 
         private void buttonDel_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-
-                if (listViewClient.SelectedItems.Count == 1)
-                {
-                   ClientSet clientSet = listViewClient.SelectedItems[0].Tag as ClientSet;
-                    Program.BD.ClientSet.Remove(clientSet);
-                    Program.BD.SaveChanges();
-                    ShowClient();
-                }
-                textBoxName.Text = "";
-                textBoxLastName.Text = "";
-                textBoxPhone.Text = "";
-            }
-            catch
-            {
-                MessageBox.Show("не возможно удалить эту запись, эта запись используется!", "ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void listViewClient_SelectedIndexChanged(object sender, EventArgs e)

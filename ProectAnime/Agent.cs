@@ -22,13 +22,16 @@ namespace ProectAnime
         {
             listViewAgent.Items.Clear();
             foreach (AgentSet agentSet in Program.BD.AgentSet)
-            { ListViewItem item = new ListViewItem(new string[]
-                {
+            {
+                ListViewItem item = new ListViewItem(new string[]
+                  {
                     agentSet.Id_agent.ToString(),
                     agentSet.Name,
-                    agentSet.Last_name,
-                    agentSet.Position
-                });
+                    agentSet.mesto,
+                    agentSet.Napravlenie ,
+                    agentSet.time, 
+
+            }) ;
                 item.Tag = agentSet;
                 listViewAgent.Items.Add(item);
                 
@@ -40,8 +43,9 @@ namespace ProectAnime
         {
             AgentSet agentsSet = new AgentSet();
             agentsSet.Name = textBoxName.Text;
-            agentsSet.Last_name = textBoxLastName.Text;
-            agentsSet.Position = textBoxPosition.Text;
+            agentsSet.mesto = textBoxmesto.Text;
+            agentsSet.Napravlenie = textBoxNapravlenie.Text;
+            agentsSet.time = textBoxtime.Text;
             Program.BD.AgentSet.Add(agentsSet);
             Program.BD.SaveChanges();
             ShowAgent();
@@ -53,8 +57,9 @@ namespace ProectAnime
             {
                 AgentSet agentSet = listViewAgent.SelectedItems[0].Tag as AgentSet;
                 agentSet.Name= textBoxName.Text;
-                agentSet.Last_name = textBoxLastName.Text;
-                agentSet.Position = textBoxPosition.Text;
+                agentSet.mesto = textBoxmesto.Text;
+                agentSet.Napravlenie = textBoxNapravlenie.Text;
+                agentSet.time = textBoxtime.Text;
                 Program.BD.SaveChanges();
                 ShowAgent();
             }
@@ -74,8 +79,9 @@ namespace ProectAnime
                     ShowAgent();
                 }
                 textBoxName.Text = "";
-                textBoxLastName.Text = "";
-                textBoxPosition.Text = "";
+                textBoxNapravlenie.Text = "";
+                textBoxmesto.Text = "";
+                textBoxtime.Text = "";
             }
             catch
             {
@@ -89,16 +95,18 @@ namespace ProectAnime
             {
                 AgentSet agentSet = listViewAgent.SelectedItems[0].Tag as AgentSet;
                 textBoxName.Text = agentSet.Name;
-                textBoxLastName.Text = agentSet.Last_name;
-                textBoxPosition.Text = agentSet.Position;
+                textBoxmesto.Text = agentSet.mesto;
+                textBoxNapravlenie.Text = agentSet.Napravlenie;
+                textBoxtime.Text = agentSet.time; 
 
 
             }
             else
             {
                 textBoxName.Text = "";
-                textBoxLastName.Text = "";
-                textBoxPosition.Text = "";
+                textBoxNapravlenie.Text = "";
+                textBoxmesto.Text = "";
+                textBoxtime.Text = "";
 
 
             }
