@@ -15,15 +15,10 @@ namespace ProectAnime
     public partial class sdelkaSet
     {
         public int Id_product { get; set; }
-        public string Name_product { get; set; }
-        public int Quantity { get; set; }
-        public int price { get; set; }
         public int Id__agent { get; set; }
         public int Id_client { get; set; }
-        public int ID_provider { get; set; }
     
         public virtual AgentSet AgentSet { get; set; }
         public virtual ClientSet ClientSet { get; set; }
-        public virtual ProviderSet ProviderSet { get; set; }
     }
 }

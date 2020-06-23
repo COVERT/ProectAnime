@@ -42,35 +42,37 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBoxtime = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(273, 115);
+            this.textBoxName.Location = new System.Drawing.Point(253, 30);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 0;
             // 
             // textBoxNapravlenie
             // 
-            this.textBoxNapravlenie.Location = new System.Drawing.Point(273, 154);
+            this.textBoxNapravlenie.Location = new System.Drawing.Point(253, 69);
             this.textBoxNapravlenie.Name = "textBoxNapravlenie";
             this.textBoxNapravlenie.Size = new System.Drawing.Size(100, 20);
             this.textBoxNapravlenie.TabIndex = 1;
             // 
             // textBoxmesto
             // 
-            this.textBoxmesto.Location = new System.Drawing.Point(273, 193);
+            this.textBoxmesto.Location = new System.Drawing.Point(253, 108);
             this.textBoxmesto.Name = "textBoxmesto";
             this.textBoxmesto.Size = new System.Drawing.Size(100, 20);
             this.textBoxmesto.TabIndex = 2;
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(229, 295);
+            this.buttonAdd.Location = new System.Drawing.Point(111, 289);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 3;
@@ -80,7 +82,7 @@
             // 
             // buttonEdit
             // 
-            this.buttonEdit.Location = new System.Drawing.Point(326, 295);
+            this.buttonEdit.Location = new System.Drawing.Point(208, 289);
             this.buttonEdit.Name = "buttonEdit";
             this.buttonEdit.Size = new System.Drawing.Size(75, 23);
             this.buttonEdit.TabIndex = 4;
@@ -90,7 +92,7 @@
             // 
             // buttonDel
             // 
-            this.buttonDel.Location = new System.Drawing.Point(137, 295);
+            this.buttonDel.Location = new System.Drawing.Point(19, 289);
             this.buttonDel.Name = "buttonDel";
             this.buttonDel.Size = new System.Drawing.Size(75, 23);
             this.buttonDel.TabIndex = 5;
@@ -101,7 +103,9 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
-            this.labelName.Location = new System.Drawing.Point(273, 99);
+            this.labelName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelName.Location = new System.Drawing.Point(253, 14);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(70, 13);
             this.labelName.TabIndex = 7;
@@ -110,7 +114,8 @@
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
-            this.labelLastName.Location = new System.Drawing.Point(270, 138);
+            this.labelLastName.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelLastName.Location = new System.Drawing.Point(250, 53);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(75, 13);
             this.labelLastName.TabIndex = 8;
@@ -119,7 +124,8 @@
             // labelPosition
             // 
             this.labelPosition.AutoSize = true;
-            this.labelPosition.Location = new System.Drawing.Point(273, 177);
+            this.labelPosition.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.labelPosition.Location = new System.Drawing.Point(253, 92);
             this.labelPosition.Name = "labelPosition";
             this.labelPosition.Size = new System.Drawing.Size(39, 13);
             this.labelPosition.TabIndex = 9;
@@ -139,7 +145,7 @@
             this.listViewAgent.Location = new System.Drawing.Point(12, 12);
             this.listViewAgent.MultiSelect = false;
             this.listViewAgent.Name = "listViewAgent";
-            this.listViewAgent.Size = new System.Drawing.Size(255, 251);
+            this.listViewAgent.Size = new System.Drawing.Size(235, 251);
             this.listViewAgent.TabIndex = 36;
             this.listViewAgent.UseCompatibleStateImageBehavior = false;
             this.listViewAgent.View = System.Windows.Forms.View.Details;
@@ -161,9 +167,13 @@
             // 
             this.columnHeader10.Text = "Место";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "время";
+            // 
             // textBoxtime
             // 
-            this.textBoxtime.Location = new System.Drawing.Point(273, 231);
+            this.textBoxtime.Location = new System.Drawing.Point(253, 146);
             this.textBoxtime.Name = "textBoxtime";
             this.textBoxtime.Size = new System.Drawing.Size(100, 20);
             this.textBoxtime.TabIndex = 37;
@@ -171,21 +181,30 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(273, 215);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label1.Location = new System.Drawing.Point(253, 130);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 38;
             this.label1.Text = "Время";
             // 
-            // columnHeader1
+            // pictureBox1
             // 
-            this.columnHeader1.Text = "время";
+            this.pictureBox1.Image = global::ProectAnime.Properties.Resources.dfsfsdsdf;
+            this.pictureBox1.Location = new System.Drawing.Point(367, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(131, 119);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 39;
+            this.pictureBox1.TabStop = false;
             // 
             // Agent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(510, 343);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxtime);
             this.Controls.Add(this.listViewAgent);
@@ -200,6 +219,7 @@
             this.Controls.Add(this.textBoxName);
             this.Name = "Agent";
             this.Text = "Agent";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,5 +244,6 @@
         private System.Windows.Forms.TextBox textBoxtime;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

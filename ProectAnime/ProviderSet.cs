@@ -18,7 +18,6 @@ namespace ProectAnime
         public ProviderSet()
         {
             this.DealSet = new HashSet<DealSet>();
-            this.sdelkaSet = new HashSet<sdelkaSet>();
         }
     
         public int ID_provider { get; set; }
@@ -30,7 +29,5 @@ namespace ProectAnime
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DealSet> DealSet { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<sdelkaSet> sdelkaSet { get; set; }
     }
 }

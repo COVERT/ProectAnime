@@ -42,7 +42,10 @@ namespace ProectAnime
             {
                 string[] item =
                 {
-                    Convert.ToString(clientSet.Id_client)
+                    Convert.ToString(clientSet.Id_client),
+                    clientSet.Name,
+                    clientSet.Last_Name
+                    
                 };
                 comboBoxClient.Items.Add(string.Join(" ", item));
             }
@@ -55,11 +58,11 @@ namespace ProectAnime
             {
                 ListViewItem item = new ListViewItem(new string[]
                 {
-                    sdelka.Name_product,
-                    Convert.ToString(sdelka.Quantity),
-                    Convert.ToString(sdelka.price),
+                    
                     sdelka.AgentSet.Name,
+                    sdelka.AgentSet.Napravlenie,
                     sdelka.ClientSet.Last_Name,
+                    Convert.ToString(sdelka.ClientSet.Phone),
                     
 
 
@@ -79,12 +82,9 @@ namespace ProectAnime
             if(comboBoxAgent.SelectedItem!=null && comboBoxClient.SelectedItem!= null )
             {
                 sdelkaSet sdelka = new sdelkaSet();
-                sdelka.Name_product = textBoxNameProduct.Text;
-                sdelka.Quantity = Convert.ToInt32(textBoxQuantity.Text);
-                sdelka.price = Convert.ToInt32(textBoxprice.Text);
+                
                 sdelka.Id__agent= Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split('.')[0]);
                 sdelka.Id_client= Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split('.')[0]);
-                
                 Program.BD.sdelkaSet.Add(sdelka);
                 Program.BD.SaveChanges();
                 ShowVis();
@@ -97,48 +97,12 @@ namespace ProectAnime
 
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if( listViewSdelka.SelectedItems.Count==1)
-            {
-                sdelkaSet sdelka = listViewSdelka.SelectedItems[0].Tag as sdelkaSet;
-                sdelka.Name_product = textBoxNameProduct.Text;
-                sdelka.Quantity = Convert.ToInt32(textBoxQuantity.Text); 
-                sdelka.price = Convert.ToInt32(textBoxprice.Text);
-                sdelka.Id__agent = Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split('.')[0]);
-                sdelka.Id_client = Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split('.')[0]);
-               
-                Program.BD.SaveChanges();
-                ShowVis();
-            }
-            else
-            {
-                MessageBox.Show("данные не выбраны", "ошибка", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+           
         }
 
         private void buttonDel_Click(object sender, EventArgs e)
         {
-            try
-            {
-
-
-                if (listViewSdelka.SelectedItems.Count == 1)
-                {
-                    sdelkaSet sdelka = listViewSdelka.SelectedItems[0].Tag as sdelkaSet;
-                    Program.BD.sdelkaSet.Remove(sdelka);
-                    Program.BD.SaveChanges();
-                    ShowVis();
-                }
-                textBoxNameProduct.Text = "";
-                textBoxprice.Text = "";
-                textBoxQuantity.Text = "";
-                comboBoxAgent.Text = "";
-                comboBoxClient.Text = "";
-                
-            }
-            catch
-            {
-                MessageBox.Show("не возможно удалить эту запись, эта запись используется!", "ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+         
         }
 
         private void listViewSdelka_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,20 +110,17 @@ namespace ProectAnime
             if (listViewSdelka.SelectedItems.Count == 1)
             {
                 sdelkaSet sdelka = listViewSdelka.SelectedItems[0].Tag as sdelkaSet;
-                textBoxNameProduct.Text = sdelka.Name_product;
-                textBoxprice.Text = Convert.ToString(sdelka.price);
-                textBoxQuantity.Text = Convert.ToString(sdelka.Quantity);
-                comboBoxAgent.Text = Convert.ToString(sdelka.Id__agent);
-                comboBoxClient.Text = Convert.ToString(sdelka.Id_client);
+               
+                comboBoxAgent.Text = Convert.ToString(sdelka.AgentSet.Name);
+                comboBoxAgent.Text = sdelka.AgentSet.Napravlenie;
+                comboBoxClient.Text = Convert.ToString(sdelka.ClientSet.Last_Name);
+
                
 
 
             }
             else
             {
-                textBoxNameProduct.Text = "";
-                textBoxprice.Text = "";
-                textBoxQuantity.Text = "";
                 comboBoxAgent.Text = "";
                 comboBoxClient.Text = "";
                
@@ -169,6 +130,11 @@ namespace ProectAnime
         }
 
         private void comboBoxProvider_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxprice_TextChanged(object sender, EventArgs e)
         {
 
         }
