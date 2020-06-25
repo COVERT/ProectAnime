@@ -52,11 +52,9 @@ namespace ProectAnime
                 }
                 else
                 {
-
                     Menu menu = new Menu();
                     menu.Show();
                     this.Hide();
-
                 }
             }
         }

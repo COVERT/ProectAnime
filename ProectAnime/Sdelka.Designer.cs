@@ -30,7 +30,6 @@
         {
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listViewSdelka = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,7 +44,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(237, 259);
+            this.buttonAdd.Location = new System.Drawing.Point(362, 260);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(96, 23);
             this.buttonAdd.TabIndex = 42;
@@ -56,7 +55,6 @@
             // listViewSdelka
             // 
             this.listViewSdelka.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
             this.columnHeader6,
@@ -67,15 +65,11 @@
             this.listViewSdelka.Location = new System.Drawing.Point(12, 8);
             this.listViewSdelka.MultiSelect = false;
             this.listViewSdelka.Name = "listViewSdelka";
-            this.listViewSdelka.Size = new System.Drawing.Size(223, 294);
+            this.listViewSdelka.Size = new System.Drawing.Size(256, 294);
             this.listViewSdelka.TabIndex = 41;
             this.listViewSdelka.UseCompatibleStateImageBehavior = false;
             this.listViewSdelka.View = System.Windows.Forms.View.Details;
             this.listViewSdelka.SelectedIndexChanged += new System.EventHandler(this.listViewSdelka_SelectedIndexChanged);
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Id";
             // 
             // columnHeader4
             // 
@@ -96,24 +90,24 @@
             // comboBoxAgent
             // 
             this.comboBoxAgent.FormattingEnabled = true;
-            this.comboBoxAgent.Location = new System.Drawing.Point(237, 47);
+            this.comboBoxAgent.Location = new System.Drawing.Point(277, 47);
             this.comboBoxAgent.Name = "comboBoxAgent";
-            this.comboBoxAgent.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxAgent.Size = new System.Drawing.Size(252, 21);
             this.comboBoxAgent.TabIndex = 46;
             // 
             // comboBoxClient
             // 
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(241, 170);
+            this.comboBoxClient.Location = new System.Drawing.Point(277, 170);
             this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxClient.Size = new System.Drawing.Size(252, 21);
             this.comboBoxClient.TabIndex = 47;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(237, 31);
+            this.label3.Location = new System.Drawing.Point(274, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(30, 13);
             this.label3.TabIndex = 54;
@@ -123,7 +117,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(241, 153);
+            this.label4.Location = new System.Drawing.Point(274, 154);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 55;
@@ -132,7 +126,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProectAnime.Properties.Resources.dfsfsdsdf;
-            this.pictureBox1.Location = new System.Drawing.Point(429, 47);
+            this.pictureBox1.Location = new System.Drawing.Point(535, 47);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(199, 195);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -144,7 +138,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(747, 308);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -165,7 +159,6 @@
         #endregion
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.ListView listViewSdelka;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;

@@ -29,7 +29,10 @@ namespace ProectAnime
             {
                 string[] item =
                 {
-                    Convert.ToString(agentSet.Id_agent)
+                    Convert.ToString(agentSet.Id_agent),
+                    agentSet.Name,
+                    agentSet.Napravlenie
+                    
                 };
                 comboBoxAgent.Items.Add(string.Join(" ", item));
 
@@ -55,7 +58,7 @@ namespace ProectAnime
         {
             listViewSdelka.Items.Clear();
               foreach( sdelkaSet sdelka in Program.BD.sdelkaSet)
-            {
+              {
                 ListViewItem item = new ListViewItem(new string[]
                 {
                     
@@ -69,7 +72,7 @@ namespace ProectAnime
                 });
                 item.Tag = sdelka;
                 listViewSdelka.Items.Add(item);
-            }
+              }
         }
 
         private void Sdelka_Load(object sender, EventArgs e)
@@ -82,9 +85,9 @@ namespace ProectAnime
             if(comboBoxAgent.SelectedItem!=null && comboBoxClient.SelectedItem!= null )
             {
                 sdelkaSet sdelka = new sdelkaSet();
-                
-                sdelka.Id__agent= Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split('.')[0]);
-                sdelka.Id_client= Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split('.')[0]);
+               
+                sdelka.Id__agent= Convert.ToInt32(comboBoxAgent.SelectedItem.ToString().Split()[0]);
+                sdelka.Id_client= Convert.ToInt32(comboBoxClient.SelectedItem.ToString().Split()[0]);
                 Program.BD.sdelkaSet.Add(sdelka);
                 Program.BD.SaveChanges();
                 ShowVis();
@@ -110,10 +113,11 @@ namespace ProectAnime
             if (listViewSdelka.SelectedItems.Count == 1)
             {
                 sdelkaSet sdelka = listViewSdelka.SelectedItems[0].Tag as sdelkaSet;
-               
-                comboBoxAgent.Text = Convert.ToString(sdelka.AgentSet.Name);
+                comboBoxAgent.Text = Convert.ToString( sdelka.AgentSet.Id_agent);
+                comboBoxAgent.Text = sdelka.AgentSet.Name;
                 comboBoxAgent.Text = sdelka.AgentSet.Napravlenie;
                 comboBoxClient.Text = Convert.ToString(sdelka.ClientSet.Last_Name);
+                comboBoxClient.Text = Convert.ToString(sdelka.ClientSet.Phone);
 
                
 
@@ -122,8 +126,11 @@ namespace ProectAnime
             else
             {
                 comboBoxAgent.Text = "";
+                comboBoxAgent.Text = "";
+                comboBoxAgent.Text = "";
                 comboBoxClient.Text = "";
-               
+                comboBoxClient.Text = "";
+
 
 
             }

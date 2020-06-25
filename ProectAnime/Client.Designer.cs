@@ -40,6 +40,8 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.labelPhone = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // listViewClient
@@ -90,6 +92,7 @@
             // labelLastName
             // 
             this.labelLastName.AutoSize = true;
+            this.labelLastName.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelLastName.Location = new System.Drawing.Point(249, 67);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(56, 13);
@@ -99,6 +102,7 @@
             // labelName
             // 
             this.labelName.AutoSize = true;
+            this.labelName.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelName.Location = new System.Drawing.Point(252, 12);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(29, 13);
@@ -129,17 +133,30 @@
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
+            this.labelPhone.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.labelPhone.Location = new System.Drawing.Point(249, 119);
             this.labelPhone.Name = "labelPhone";
             this.labelPhone.Size = new System.Drawing.Size(93, 13);
             this.labelPhone.TabIndex = 46;
             this.labelPhone.Text = "Номер телефона";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProectAnime.Properties.Resources.dfsfsdsdf;
+            this.pictureBox1.Location = new System.Drawing.Point(371, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(129, 127);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 47;
+            this.pictureBox1.TabStop = false;
+            // 
             // Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(512, 357);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.labelLastName);
@@ -150,6 +167,7 @@
             this.Controls.Add(this.listViewClient);
             this.Name = "Client";
             this.Text = "Client";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -169,5 +187,6 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.Label labelPhone;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
